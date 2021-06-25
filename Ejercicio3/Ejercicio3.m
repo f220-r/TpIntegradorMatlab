@@ -1,18 +1,13 @@
 %%Calcular raices
 %%Obtener media aritmetica, obtener desvio estandar
 
-function [T_ce, D_ce]=Ejercicio3(Y,T,tol,num) %%T tiempos, Y posiciones, d tolerancia, num pos de equilibrio
+function [T_ce, D_ce,indxs]=Ejercicio3(Y,T,tol,num) %%T tiempos, Y posiciones, d tolerancia, num pos de equilibrio
 N = length(Y);
-T_ce = [];
-j = 1;
-for k=1:N
-    if(abs(Y(k)-num) < tol)
-        T_ce(j) = T(k);
-        j = j+1;
-    end
-end
+[indxs,T_ce] = MetodoUbicacionRaicesReales(Y,T,tol,num);
 N = size(T_ce);
-N = N(2);
+N = N(1);
+T_ce=T_ce(2:N)-T_ce(1:N-1)
+N = N-1;
 T_ce_av = sum(T_ce)/N;
-D_ce = sqrt((((T_ce - T_ce_av * ones(1,N)).^2)*ones(N,1))/  (N-1));
+D_ce = sqrt((ones(1,N)*((T_ce - T_ce_av * ones(N,1)).^2))/  (N-1));
 T_ce = T_ce_av;

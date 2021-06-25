@@ -20,7 +20,7 @@ title('A)');
 grid
 
 subplot(1,2,2);
-t = T(2:end);
+t = T(2:end-1);
 plot(t,D);
 ylabel('v (cm/s)');
 xlabel('t (s)');
