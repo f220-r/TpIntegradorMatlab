@@ -1,14 +1,10 @@
 clear
 clc
+Ejercicio1 = matfile('Exc1.mat');
+Ejercicio1.Properties.Writable = true;
+T = Ejercicio1.T';
 
-t0 = 0;   % Tiempo Inicial
-tF = 60;   % Tiempo Final
-X0 = [0 0 0]; % Condición inicial
-h = 10e-3;   % Intervalos de tiempos
-M = (tF-t0)/h;  % Pasos de solución
-
-[T,Y] = RungeKuttaOrdenN('Ejercicio1_a',t0,tF,X0,M);
-Y = 1e2 .* Y(:,1);
+Y = 1e2 .* Ejercicio1.Y_a;
 [Tav, Desv, indxs] = Ejercicio3(Y,T,.04,15);
 subplot(2,1,1);
 plot(T,Y,'g');
@@ -29,8 +25,7 @@ grid
 
 %%------------------------------b)
 
-[T,Y] = RungeKuttaOrdenN('Ejercicio1_b',t0,tF,X0,M);
-Y = 1e2 .* Y(:,1);
+Y = 1e2 .* Ejercicio1.Y_b;
 [Tav, Desv, indxs] = Ejercicio3(Y,T,.05,0);
 subplot(2,1,2);
 plot(T,Y,'g');

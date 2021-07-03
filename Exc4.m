@@ -1,16 +1,14 @@
 clear
 clc
 
-t0 = 0;   % Tiempo Inicial
-tF = 60;   % Tiempo Final
-X0 = [0 0 0]; % Condición inicial
-h = 10e-3;   % Intervalos de tiempos
-M = (tF-t0)/h;  % Pasos de solución
+Ejercicio1 = matfile('Exc1.mat');
+Ejercicio1.Properties.Writable = true;
+T = Ejercicio1.T';
 
-[T,Y] = RungeKuttaOrdenN('Ejercicio1_a',t0,tF,X0,M);
+Y = 1e2 .* Ejercicio1.Y_a;
 D = Extrapolacion_Richardson(Y,T)';
 D = 1e2 .* D(2:end);
-Y = 1e2 .* Y(:,1);
+
 subplot(2,2,1);
 plot(T,Y,'g');
 ylabel('y (cm)');
@@ -26,9 +24,8 @@ xlabel('t (s)');
 title('A)');
 grid
 
-[T,Y] = RungeKuttaOrdenN('Ejercicio1_b',t0,tF,X0,M);
+Y = 1e2 .* Ejercicio1.Y_b;
 D = Extrapolacion_Richardson(Y,T)';
-Y = 1e2 .* Y(:,1);
 D = 1e2 .* D(2:end);
 
 subplot(2,2,3);
