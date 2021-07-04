@@ -8,12 +8,23 @@ Ts = Ejercicio6.Ts;
 T = Ejercicio1.T;
 N = Ejercicio6.N;
 %%--------------------------------------------------------------------------a)
-Ys = Ejercicio6.Ys_a;
-Y = 1e2 .* Ejercicio1.Y_a;
+Ys = Ejercicio6.Ys_a ;
+Y =  Ejercicio1.Y_a .* 1e2;
 %%----------------------------------------------------Newton
 
 %%----------------------------------------------------Lagrange
-
+Ys_int_l_a = InterpolacionLagrange(T',Ts,Ys);
+%%Ys_int_l_a = get_poli(T',Ts,Ys);
+figure(1);
+subplot(3,1,2);
+plot(T,Y,'--b');
+hold on
+plot(Ts,Ys,'x b');
+plot(T, Ys_int_l_a, 'c');
+hold off
+ylim([-10 30])
+legend('Funcion original','Funcion muestreada','Funcion interpolada');
+grid();
 %%----------------------------------------------------Spline Cubica
 C = SplineCubica(Ts,Ys);
 Ys_int_sc_a = [];
@@ -43,6 +54,18 @@ Y = 1e2 .* Ejercicio1.Y_b;
 %%----------------------------------------------------Newton
 
 %%----------------------------------------------------Lagrange
+Ys_int_l_b = InterpolacionLagrange(T',Ts,Ys);
+%%Ys_int_l_a = get_poli(T',Ts,Ys);
+figure(2);
+subplot(3,1,2);
+plot(T,Y,'--b');
+hold on
+plot(Ts,Ys,'x b');
+plot(T, Ys_int_l_b, 'c');
+hold off
+ylim([-30 30])
+legend('Funcion original','Funcion muestreada','Funcion interpolada');
+grid();
 %%----------------------------------------------------Spline Cubica
 C = SplineCubica(Ts,Ys);
 Ys_int_sc_b = [];
