@@ -24,10 +24,9 @@ hold off
 ylim([-10 30])
 legend('Funcion original','Funcion muestreada','Funcion interpolada');
 grid();
-title('Interpolacion de Newton _ a)');
 %%----------------------------------------------------Lagrange
 Ys_int_l_a = InterpolacionLagrange(T',Ts,Ys);
-
+%%Ys_int_l_a = get_poli(T',Ts,Ys);
 figure(1);
 subplot(3,1,2);
 plot(T,Y,'--b');
@@ -38,7 +37,6 @@ hold off
 ylim([-10 30])
 legend('Funcion original','Funcion muestreada','Funcion interpolada');
 grid();
-title('Interpolacion de Lagrange _ a)');
 %%----------------------------------------------------Spline Cubica
 C = SplineCubica(Ts,Ys);
 Ys_int_sc_a = [];
@@ -61,28 +59,16 @@ plot(T, Ys_int_sc_a, 'c');
 hold off
 legend('Funcion original','Funcion muestreada','Funcion interpolada');
 grid();
-title('Splines Cubicas _ a)');
+
 %%--------------------------------------------------------------------------b)
 Ys = Ejercicio6.Ys_b;
 Y = 1e2 .* Ejercicio1.Y_b;
 %%----------------------------------------------------Newton
 [C,D] = InterpolacionNewton(Ts,Ys);
 Ys_int_n_b = evalMiPoli(C,T',Ts);
-
-figure(2);
-subplot(3,1,1);
-plot(T,Y,'--b');
-hold on
-plot(Ts,Ys,'x b');
-plot(T, Ys_int_n_b, 'c');
-hold off
-ylim([-40 40])
-legend('Funcion original','Funcion muestreada','Funcion interpolada');
-grid();
-title('Interpolacion de Newton _ b)');
 %%----------------------------------------------------Lagrange
-Ys_int_l_b = InterpolacionLagrange(T',Ts,Ys);
-
+Ys_int_l_b = get_poli(T',Ts,Ys);
+%%Ys_int_l_a = get_poli(T',Ts,Ys);
 figure(2);
 subplot(3,1,2);
 plot(T,Y,'--b');
@@ -90,10 +76,9 @@ hold on
 plot(Ts,Ys,'x b');
 plot(T, Ys_int_l_b, 'c');
 hold off
-ylim([-40 40])
+ylim([-50 50])
 legend('Funcion original','Funcion muestreada','Funcion interpolada');
 grid();
-title('Interpolacion de Lagrange _ b)');
 %%----------------------------------------------------Spline Cubica
 C = SplineCubica(Ts,Ys);
 Ys_int_sc_b = [];
@@ -116,4 +101,3 @@ plot(T, Ys_int_sc_b, 'c');
 hold off
 legend('Funcion original','Funcion muestreada','Funcion interpolada');
 grid();
-title('Splines Cubicas _ b)');
