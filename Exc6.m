@@ -12,7 +12,7 @@ Ts = T(1:100:N);
 Ys_a = Y(1:100:N);
 
 subplot(2,1,1);
-plot(T,Y,'--b');
+plot(T,Y,'-r');
 hold on
 stem(Ts,Ys_a,'b','LineWidth',1);
 hold off;
@@ -26,7 +26,7 @@ Y = 1e2 .* Ejercicio1.Y_b;
 Ys_b = Y(1:100:N);
 
 subplot(2,1,2);
-plot(T,Y,'--b');
+plot(T,Y,'-r');
 hold on
 stem(Ts,Ys_b,'b','LineWidth',1);
 hold off;

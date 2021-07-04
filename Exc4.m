@@ -7,7 +7,7 @@ T = Ejercicio1.T';
 
 Y = 1e2 .* Ejercicio1.Y_a;
 D = Extrapolacion_Richardson(Y,T)';
-D = 1e2 .* D(2:end);
+D = D(2:end);
 
 subplot(2,2,1);
 plot(T,Y,'g');
@@ -26,7 +26,7 @@ grid
 
 Y = 1e2 .* Ejercicio1.Y_b;
 D = Extrapolacion_Richardson(Y,T)';
-D = 1e2 .* D(2:end);
+D = D(2:end);
 
 subplot(2,2,3);
 plot(T,Y,'g');

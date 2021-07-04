@@ -30,6 +30,8 @@ plot(Y_a,Ys_int_n_a,'x');
 hold off
 grid();
 title('Correlaciones-Newton (a)');
+ylabel('y (cm)');
+xlabel('Ys_i_n_t (cm)');
 string_ = {sprintf('Pendiente de Ajuste = %.05f ',A),sprintf('Ordenada al Origen = %.05f ',B),sprintf('Error = %.05f ',E),sprintf('Correlacion = %.05f ',C)};
 annotation('textbox', [.2 .5 .3 .3], 'String', string_,'FitBoxToText','on');
 
@@ -46,6 +48,8 @@ plot(Y_a,Ys_int_l_a,'x');
 hold off
 grid();
 title('Correlaciones-Lagrange (a)');
+ylabel('y (cm)');
+xlabel('Ys_i_n_t (cm)');
 string_ = {sprintf('Pendiente de Ajuste = %.05f ',A),sprintf('Ordenada al Origen = %.05f ',B),sprintf('Error = %.05f ',E),sprintf('Correlacion = %.05f ',C)};
 annotation('textbox', [.2 .5 .3 .3], 'String', string_,'FitBoxToText','on');
 
@@ -62,6 +66,8 @@ plot(Y_a,Ys_int_sc_a,'x');
 hold off
 grid();
 title('Correlaciones-Spline Cubica (a)');
+ylabel('y (cm)');
+xlabel('Ys_i_n_t (cm)');
 string_ = {sprintf('Pendiente de Ajuste = %.05f ',A),sprintf('Ordenada al Origen = %.05f ',B),sprintf('Error = %.05f ',E),sprintf('Correlacion = %.05f ',C)};
 annotation('textbox', [.2 .5 .3 .3], 'String', string_,'FitBoxToText','on');
 %%--------------------------------------------------------------------------b)
@@ -84,6 +90,8 @@ plot(Y_b,Ys_int_n_b,'x');
 hold off
 grid();
 title('Correlaciones-Newton (b)');
+ylabel('y (cm)');
+xlabel('Ys_i_n_t (cm)');
 string_ = {sprintf('Pendiente de Ajuste = %.05f ',A),sprintf('Ordenada al Origen = %.05f ',B),sprintf('Error = %.05f ',E),sprintf('Correlacion = %.05f ',C)};
 annotation('textbox', [.74 .56 .1 .1], 'String', string_,'FitBoxToText','on');
 
@@ -100,6 +108,8 @@ plot(Y_b,Ys_int_l_b,'x');
 hold off
 grid();
 title('Correlaciones-Lagrange (b)');
+ylabel('y (cm)');
+xlabel('Ys_i_n_t (cm)');
 string_ = {sprintf('Pendiente de Ajuste = %.05f ',A),sprintf('Ordenada al Origen = %.05f ',B),sprintf('Error = %.05f ',E),sprintf('Correlacion = %.05f ',C)};
 annotation('textbox', [.74 .56 .1 .1], 'String', string_,'FitBoxToText','on');
 
@@ -107,7 +117,6 @@ annotation('textbox', [.74 .56 .1 .1], 'String', string_,'FitBoxToText','on');
 [A,B,E,C] = MinimosCuadrados(Y_b,Ys_int_sc_b);
 I = (-30:30);
 Fp = A .* I + B;
-
 figure(3)
 subplot(1,2,2);
 plot(I,Fp);
@@ -116,5 +125,7 @@ plot(Y_b,Ys_int_sc_b,'x');
 hold off
 grid();
 title('Correlaciones-Spline Cubica (b)');
+ylabel('y (cm)');
+xlabel('Ys_i_n_t (cm)');
 string_ = {sprintf('Pendiente de Ajuste = %.05f ',A),sprintf('Ordenada al Origen = %.05f ',B),sprintf('Error = %.05f ',E),sprintf('Correlacion = %.05f ',C)};
 annotation('textbox', [.74 .3 .1 .1], 'String', string_,'FitBoxToText','on');

@@ -25,6 +25,7 @@ string_ = sprintf('Area = %.05f cm2',I);
 
 subplot(2,2,3);
 plot(T,Y,'g');
+area(T,Y);
 hold on
 legend(string_);
 hold off;
@@ -53,6 +54,7 @@ string_ = sprintf('Area = %.05f cm2',I);
 
 subplot(2,2,4);
 plot(T,Y,'g');
+area(T,Y);
 hold on
 legend(string_);
 hold off;

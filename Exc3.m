@@ -22,11 +22,12 @@ ylabel('y (cm)');
 xlabel('t (s)');
 title('A)');
 grid
-
+string_ = {sprintf('Desvio = %.05f ',Desv),sprintf('Promedio = %.05f ',Tav)};
+annotation('textbox', [.74 .74 .1 .1], 'String', string_,'FitBoxToText','on');
 %%------------------------------b)
 
 Y = 1e2 .* Ejercicio1.Y_b;
-[Tav, Desv, indxs] = Ejercicio3(Y,T,.05,0);
+[Tav, Desv, indxs] = Ejercicio3(Y,T,.1,0);
 subplot(2,1,2);
 plot(T,Y,'g');
 hold on
@@ -43,3 +44,5 @@ ylabel('y (cm)');
 xlabel('t (s)');
 title('B)');
 grid
+string_ = {sprintf('Desvio = %.05f ',Desv),sprintf('Promedio = %.05f ',Tav)};
+annotation('textbox', [.74 .3 .1 .1], 'String', string_,'FitBoxToText','on');

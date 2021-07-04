@@ -16,10 +16,10 @@ for i=1:n
     Cov = Cov + (X(i)-Xmed) * (Y(i)-Ymed)/n;
     Desx = Desx + (X(i)-Xmed)^2;
     Desy = Desy + (Y(i)-Ymed)^2;
-    Esum = Esum +(Y(i)-X(i))^2;
+    Esum = Esum +( A .* X(i) + B -Y(i))^2;
 end
 Desx = sqrt(Desx/n);
 Desy = sqrt(Desy/n);
 
-E = 1/n * sqrt(Esum);
+E = sqrt(Esum/n);
 C = Cov/(Desx*Desy);
